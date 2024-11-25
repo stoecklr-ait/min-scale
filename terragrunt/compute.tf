@@ -1,5 +1,6 @@
 resource "openstack_compute_instance_v2" "min_scale_jumper" {
   name       = "min_scale_jumper"
+  tags       = ["min_scale_jumper", "min_scale_comp"]
   image_id   = "fd234366-75b1-47a1-b8ce-e9f9859b50b0"
   flavor_id  = data.openstack_compute_flavor_v2.d2-4.id
   key_pair   = "cyberrange-key"
@@ -13,6 +14,7 @@ resource "openstack_compute_instance_v2" "min_scale_jumper" {
 resource "openstack_compute_instance_v2" "min_scale_client" {
   count      = 3
   name       = "min_scale_client.${count.index}"
+  tags       = ["min_scale_client", "min_scale_comp"]
   image_id   = "fd234366-75b1-47a1-b8ce-e9f9859b50b0"
   flavor_id  = data.openstack_compute_flavor_v2.d2-4.id
   key_pair   = "cyberrange-key"

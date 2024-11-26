@@ -1,0 +1,7 @@
+---
+# Ansible Collections
+collections:
+  # openstack modules for inventory src
+  - name: openstack.cloud
+    # version: 1.10.0
+    version: 2.2.0

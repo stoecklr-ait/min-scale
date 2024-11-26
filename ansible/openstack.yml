@@ -1,0 +1,11 @@
+---
+
+plugin: openstack.cloud.openstack
+
+fail_on_error: true
+private: true
+
+groups:
+  client: "'min_scale_client' in (openstack.tags|list)"
+  jumper: "'min_scale_jumper' in (openstack.tags|list)"
+  comp: "'min_scale_comp' in (openstack.tags|list)"

@@ -1,0 +1,7 @@
+---
+
+- name: Install Firefox
+  hosts: client
+  roles:
+    - role: don_rumata.ansible_role_install_firefox
+    - role: firefox-autoconfig

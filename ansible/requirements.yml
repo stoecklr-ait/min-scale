@@ -5,3 +5,10 @@ collections:
   - name: openstack.cloud
     # version: 1.10.0
     version: 2.2.0
+
+roles:
+  - src: don_rumata.ansible_role_install_firefox
+  - src: https://github.com/ait-cs-IaaS/ansible-firefox-autoconfig.git
+    scm: git
+    version: v1.5
+    name: firefox-autoconfig

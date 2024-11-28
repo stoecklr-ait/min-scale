@@ -5,6 +5,11 @@ plugin: openstack.cloud.openstack
 fail_on_error: true
 private: true
 
+compose:
+  ansible_ssh_host: openstack.addresses['min_scale_network'][1].addr if 'min_scale_network' in openstack.addresses and (openstack.addresses['min_scale_network'] | length) > 1 else (openstack.addresses.values()|list)[0][0].addr
+  ansible_ssh_common_args: "'-o StrictHostKeyChecking=no -o ProxyCommand=\"ssh -W %h:%p -q ubuntu@min_scale_jumper\"' if 'min_scale_client' in (openstack.tags|list)"   
+
+
 groups:
   client: "'min_scale_client' in (openstack.tags|list)"
   jumper: "'min_scale_jumper' in (openstack.tags|list)"

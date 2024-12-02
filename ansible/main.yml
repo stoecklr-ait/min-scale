@@ -1,5 +1,13 @@
 ---
 
+- name: Check firefox path
+  hosts: client
+  tasks:
+    - name: Check if firefox is in PATH
+      ansible.builtin.command: which firefox
+      register: which_ff
+      changed_when: false
+
 - name: Create firefox directories
   hosts: client
   become_user: root
@@ -10,15 +18,19 @@
         path: /etc/firefox
         state: directory
         mode: "0600"
+      when: which_ff.rc == 1
     - name: Create firefox distributtion
       ansible.builtin.file:
         path: /usr/lib/firefox/distribution
         state: directory
         mode: "0600"
-
-
-- name: Install Firefox
-  hosts: client
+      when: which_ff.rc == 1
   roles:
     - role: don_rumata.ansible_role_install_firefox
+      when: which_ff.rc == 1
+
+
+- name: Configure Firefox
+  hosts: client
+  roles:
     - role: firefox-autoconfig

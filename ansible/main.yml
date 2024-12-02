@@ -1,5 +1,22 @@
 ---
 
+- name: Create firefox directories
+  hosts: client
+  become_user: root
+  become: true
+  tasks:
+    - name: Create etc
+      ansible.builtin.file:
+        path: /etc/firefox
+        state: directory
+        mode: "0600"
+    - name: Create firefox distributtion
+      ansible.builtin.file:
+        path: /usr/lib/firefox/distribution
+        state: directory
+        mode: "0600"
+
+
 - name: Install Firefox
   hosts: client
   roles:

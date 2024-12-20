@@ -11,7 +11,7 @@ provider "openstack" {
 }
 
 data "openstack_images_image_v2" "ubuntu" {
-  name = "cr-client-ubuntu-2404"
+  name = "Ubuntu 24.04"
 }
 
 data "openstack_compute_flavor_v2" "weak" {

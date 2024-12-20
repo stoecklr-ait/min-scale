@@ -14,9 +14,10 @@ data "openstack_images_image_v2" "ubuntu" {
   name = "cr-client-ubuntu-2404"
 }
 
-data "openstack_compute_flavor_v2" "d2-4" {
+data "openstack_compute_flavor_v2" "weak" {
   vcpus = 2
   ram   = 4096
+  disk  = 15
 }
 
 data "openstack_networking_network_v2" "CBT-DEV-provider" {

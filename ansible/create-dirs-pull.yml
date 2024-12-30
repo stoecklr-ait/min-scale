@@ -5,4 +5,4 @@
     - role: ansible-pull-play
       vars:
         pull_repo: https://github.com/stoecklr-ait/min-scale.git
-        pull_playbook: create-dirs-local.yml
+        pull_playbook: ansible/create-dirs-local.yml

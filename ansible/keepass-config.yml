@@ -1,0 +1,6 @@
+---
+
+- name: Configure Keepass
+  hosts: client
+  roles:
+    - role: keepassxc

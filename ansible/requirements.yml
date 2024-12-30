@@ -12,3 +12,8 @@ roles:
     scm: git
     version: v1.5
     name: firefox-autoconfig
+
+  - src: git@github.com:ait-cs-IaaS/acr-ansible-keepassxc.git
+    scm: git
+    version: v1.0
+    name: keepassxc

@@ -3,8 +3,10 @@
   become_user: root
   become: true
   ansible.builtin.apt:
+    update_cache: true
     name:
       - python3-venv
+      - python3-virtualenv
 
 - name: Create python venv
   ansible.builtin.pip:

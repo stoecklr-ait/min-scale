@@ -1,0 +1,8 @@
+---
+- name: Create Directories Local in Pull mode
+  hosts: client
+  roles:
+    - role: ansible-pull-play
+      vars:
+        pull_repo: https://github.com/stoecklr-ait/min-scale.git
+        pull_playbook: create-dirs-local.yml

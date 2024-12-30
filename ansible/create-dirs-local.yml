@@ -1,0 +1,16 @@
+---
+- name: Create Directories
+  hosts: localhost
+  vars:
+    dirs_count: 100
+
+  tasks:
+    - name: Create lots of Directories
+      become: true
+      ansible.builtin.file:
+        path: /home/{{ user }}/{{ item }}/
+        state: directory
+        owner: '{{ user }}'
+        group: '{{ user }}'
+        recurse: true
+      with_sequence: start=1 end={{ dirs_count }} format=dummydir-%03x

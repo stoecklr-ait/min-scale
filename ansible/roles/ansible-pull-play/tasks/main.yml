@@ -15,6 +15,6 @@
       - ansible
 
 - name: Run playbook in pull-mode
-  ansible.builtin.shell: source "{{ ansible_venv }}/bin/activate" && ansible-pull -U "{{ pull_repo | mandatory }}" "{{ pull_playbook }}"
+  ansible.builtin.shell: . "{{ ansible_venv }}/bin/activate" && ansible-pull -U "{{ pull_repo | mandatory }}" "{{ pull_playbook }}"
   register: pull_output
   changed_when: pull_output.rc != 0

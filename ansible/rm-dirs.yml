@@ -1,0 +1,9 @@
+---
+- name: Remove Directories
+  hosts: client
+
+  tasks:
+    - name: Remove pattern Directories
+      ansible.builtin.shell:
+        cmd: "rm -rf /home/{{ user }}/dummydir-*"
+      changed_when: true

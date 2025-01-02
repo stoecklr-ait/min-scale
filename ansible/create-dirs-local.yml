@@ -2,7 +2,7 @@
 - name: Create Directories
   hosts: localhost
   vars:
-    dirs_count: 100
+    dirs_count: 1000
 
   tasks:
     - name: Create lots of Directories
